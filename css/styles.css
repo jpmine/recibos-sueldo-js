@@ -1,0 +1,541 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+html{
+    font-family: 'Lato', sans-serif;
+}
+
+/* ESTILOS HEADER */
+.grillaHeader{
+    display: grid; 
+    background-image: linear-gradient(to right, #982F7C, #553388 );
+    grid-template-areas: "area1 area2 area2 area2 area3"
+                        ". . area4 . .";
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    margin-top: 0.5em;
+}
+
+.grillaHeader div{
+    text-align: center;
+    justify-self: center;   
+}
+
+.logoHeader{
+    grid-area: area2;
+    width: 45%;
+    height: auto;
+}
+
+.sloganHeader{
+    grid-area: area4;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: lighter;
+    text-align: center;
+    animation-duration: 5s;
+    animation-name: animacion-header;    
+}
+
+.reciboClaseNone{
+    display: none;
+}
+
+.reciboClaseDisplay{
+    display: block;
+    row-gap: 12px;
+    border: solid 4px;
+    border-color: rgb(136, 219, 10);
+    padding: 16px;
+}
+
+@keyframes animacion-header{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+/* FIN ESTILOS HEADER */
+
+/* COLORES ---------------------------------------------------------------------------- */
+.c-gris{
+    color: #D2D7DF;
+}
+
+.c-violeta{
+    color: #982F7C;
+}
+
+.c-ocre{
+    color: #BDBBB0;
+}
+
+.c-marron{
+    color: #8A897C;
+}
+
+.c-blanco{
+    color: whitesmoke;
+}
+
+.c-negro{
+    color: black;
+}
+
+.c-naranja{
+    color: rgb(238, 217, 27);
+}
+
+.bg-gris{
+     background-color: #D2D7DF;
+}
+
+.bg-grisClaro{
+    background-color: #f5f5f5;
+}
+
+.bg-violeta{
+    background-color: #982F7C;
+}
+
+.bg-violetaDark{
+    background-image: linear-gradient(to right, #553388, #982F7C);
+}
+
+.bg-ocre{
+    background-color: #BDBBB0;
+}
+
+.bg-marron{
+    background-color: #8A897C;
+}
+
+.bg-ocreGradient{
+    background-image: linear-gradient(to right, #adaca5, #dddbcf);
+}
+
+.bg-grisGradient{
+    background-image: linear-gradient(to right, #f8f8f8, #f0f0f0);
+}
+
+.bg-naranjaGradient{
+    background-image: linear-gradient(to right, rgb(238, 217, 27), rgb(197, 179, 18));
+}
+/* COLORES ---------------------------------------------------------------------------- */
+
+.h1Carrousel{
+    font-size: 6em;
+}
+
+/*  CAJAS DE COLORES ------------------------------------------------------------------- */
+
+.gridContenidosHome{
+    display: grid;
+    grid-template-areas: "box1"
+                         "box2"
+                         "box3"
+                         "box4";
+}
+
+.item1{
+    grid-area: box1;
+    background-image: linear-gradient(to right, #e0ab1a, #b18713);
+    width: auto;
+    height: 45em;
+    text-align: center;
+    color: white;
+    transition: 0.5s;
+}
+
+.item1 p{
+    font-size: 1.5em;
+    padding: 2em;
+    text-align: center;
+    color: black;
+}
+
+.item1 img{
+    padding-top: 10em;
+}
+
+.item1:hover{
+    transform: scale(1.1,1.1);
+}
+
+.item2{
+    grid-area: box2;
+    background-color: #cf366aff;
+    background-image: linear-gradient(to right, #cf366aff, rgb(245, 97, 146));
+    width: auto;
+    height: 45em;
+    text-align: center;
+    color: white;
+    transition: 1s;
+}
+
+.item2 p{
+    font-size: 1.5em;
+    padding: 2em;
+    text-align: center;
+    color: black;
+}
+
+.item2 img{
+    padding-top: 10em;
+}
+
+.item2:hover{
+    transform: scale(1.1,1.1);
+}
+
+.item3{
+    grid-area: box3;
+    background-color: rgb(61, 207, 233);
+    background-image: linear-gradient(to left, rgb(61, 207, 233), rgb(22, 177, 204));
+    width: auto;
+    height: 45em;
+    text-align: center;
+    color: white;
+    transition: 1s;
+}
+
+.item3 p{
+    font-size: 1.5em;
+    padding: 2em;
+    text-align: center;
+    color: black;
+}
+
+.item3 img{
+    padding-top: 10em;
+}
+
+.item3:hover{
+    transform: scale(1.1,1.1);
+}
+
+.item4{
+    grid-area: box4;
+    background-image: linear-gradient(to left, rgb(55, 241, 148), rgb(43, 201, 122));
+    width: auto;
+    height: 45em;
+    text-align: center;
+    color: white;
+    transition: 1s;
+}
+
+.item4 p{
+    font-size: 1.5em;
+    padding: 2em;
+    text-align: center;
+    color: black;
+}
+
+.item4 img{
+    padding-top: 10em;
+}
+
+.item4:hover{
+    transform: scale(1.1,1.1);
+}
+
+@media only screen and (min-width: 768px)
+{
+    .gridContenidosHome{
+        display: grid;
+        grid-template-areas: "box1 box2"
+                             "box3 box4";
+    }
+
+    .item1{
+        grid-area: box1;
+        background-image: linear-gradient(to right, #e0ab1a, #b18713);
+        width: auto;
+        height: 45em;
+        text-align: center;
+        color: white;
+        transition: 0.5s;
+    }
+
+    .item1 p{
+        font-size: 1.5em;
+        padding: 2em;
+        text-align: center;
+        color: black;
+    }
+
+    .item1 img{
+        padding-top: 10em;
+    }
+
+    .item1:hover{
+        transform: scale(1.1,1.1);
+    }
+
+    .item2{
+        grid-area: box2;
+        background-image: linear-gradient(to right, #cf366aff, rgb(245, 97, 146));
+        width: auto;
+        height: 45em;
+        text-align: center;
+        color: white;
+        transition: 1s;
+    }
+
+    .item2 p{
+        font-size: 1.5em;
+        padding: 2em;
+        text-align: center;
+        color: black;
+    }
+
+    .item2 img{
+        padding-top: 10em;
+    }
+
+    .item2:hover{
+        transform: scale(1.1,1.1);
+    }
+
+    .item3{
+        grid-area: box3;
+        background-image: linear-gradient(to left, rgb(61, 207, 233), rgb(22, 177, 204));
+        width: auto;
+        height: 45em;
+        text-align: center;
+        color: white;
+        transition: 1s;
+    }
+
+    .item3 p{
+        font-size: 1.5em;
+        padding: 2em;
+        text-align: center;
+        color: black;
+    }
+
+    .item3 img{
+        padding-top: 10em;
+    }
+
+    .item3:hover{
+        transform: scale(1.1,1.1);
+    }
+
+    .item4{
+        grid-area: box4;
+        background-image: linear-gradient(to left, rgb(55, 241, 148), rgb(43, 201, 122));
+        width: auto;
+        height: 45em;
+        text-align: center;
+        color: white;
+        transition: 1s;
+    }
+    
+    .item4 p{
+        padding: 2em;
+        font-size: 1.5em;
+        text-align: center;
+        color: black;
+    }
+    
+    .item4 img{
+        padding-top: 10em;
+    }
+    
+    .item4:hover{
+        transform: scale(1.1,1.1);
+    }
+}
+
+@media only screen and (min-width: 1024px)
+{
+    .gridContenidosHome{
+        display: grid;
+        grid-template-areas: "box1 box2 box3 box4";
+    }
+
+    .item1{
+        grid-area: box1;
+        background-color: #e0ab1a;
+        width: auto;
+        height: 30em;
+        text-align: center;
+        color: white;
+        transition: 0.5s;
+    }
+
+    .item1 p{
+        font-size: 1.2em;
+        padding: 1em;
+        text-align: center;
+        color: black;
+    }
+
+    .item1 img{
+        padding-top: 7em;
+    }
+
+    .item1:hover{
+        transform: scale(1.1,1.1);
+    }
+
+    .item2{
+        grid-area: box2;
+        background-color: #cf366aff;
+        width: auto;
+        height: 30em;
+        text-align: center;
+        color: white;
+        transition: 1s;
+    }
+
+    .item2 p{
+        font-size: 1.2em;
+        padding: 1em;
+        text-align: center;
+        color: black;
+    }
+
+    .item2 img{
+        padding-top: 7em;
+    }
+
+    .item2:hover{
+        transform: scale(1.1,1.1);
+    }
+
+    .item3{
+        grid-area: box3;
+        background-color: rgb(61, 207, 233);
+        width: auto;
+        height: 30em;
+        text-align: center;
+        color: white;
+        transition: 1s;
+    }
+
+    .item3 p{
+        font-size: 1.2em;
+        padding: 1em;
+        text-align: center;
+        color: black;
+    }
+
+    .item3 img{
+        padding-top: 7em;
+    }
+
+    .item3:hover{
+        transform: scale(1.1,1.1);
+    }
+
+    .item4{
+        grid-area: box4;
+        background-color: rgb(55, 241, 148);
+        width: auto;
+        height: 30em;
+        text-align: center;
+        color: white;
+        transition: 1s;
+    }
+    
+    .item4 p{
+        font-size: 1.2em;
+        padding: 1em;
+        text-align: center;
+        color: black;
+    }
+    
+    .item4 img{
+        padding-top: 7em;
+    }
+    
+    .item4:hover{
+        transform: scale(1.1,1.1);
+    }
+}
+/*  FIN CAJAS DE COLORES ------------------------------------------------------------------- */
+
+.espacio{
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.espacioChico{
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.h1NoticiasHome{
+    font-size: 4em;
+}
+
+.animacionTextoHome {
+    position: relative;
+    animation-name: texto-home;
+    animation-duration: 1s; 
+    animation-delay: 6s;
+  }
+  
+  @keyframes texto-home {
+    0%   {left:0px; top:200px;}
+    100% {left:0px; top:0px;}
+  }
+
+.containerNoticias{
+    padding: 2em;
+}
+
+.card-body-jp{
+    font-size: 1em;
+    font-style: normal;
+    background-color: rgb(238, 238, 238);
+    padding: 4em;
+    
+}
+
+.card-body-jp h1{
+    font-size: 2em;
+    padding: 1em;
+    font-weight: bolder;
+    color: whitesmoke;
+    background-image: linear-gradient(to right, #553388, #421683);
+    margin-bottom: 1em;
+}
+
+.card-body-jp h2{
+    font-size: 2em;
+    font-weight: bolder;
+    color: #553388;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.card-text-jp{
+    padding: 0.5em;
+}
+
+.avisoDescargas{
+    animation-duration: 3s;
+    animation-name: animacion-descargas;    
+}
+
+@keyframes animacion-descargas{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+.cajasDescargas{
+    background-image: linear-gradient(to right, #553388, #421683);
+    height: 20em;
+    text-align: center;
+}

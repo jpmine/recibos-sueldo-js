@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sitio web para amantes de la informática, los sistemas y la tecnología. Recursos, herramientas y capacitación libre. Información útil y más en minuto IT.">
+    <meta name="keywords" content="sistemas, informatica, cursos gratis, informacion, trabajo, empleos, descargas, programacion, open source, consejos, analista sistemas, informatica, argentina, trabajar, industria, sindicato, diseño, web"/>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/estilos.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <title>Tu recibo de sueldo online</title>
+</head>
+<body>
+
+    <!--Header------------------------------------------------------------------------------------------>
+    <header>
+        <div class="container-fluid">
+            <div class="grillaHeader">
+                <div class="grillaHeader__logoHeader">
+                    <a href="index.html"><img src="./Images/icon-calc.png" alt="Logotipo minuto IT" class="p-3 img-fluid"></a>
+                </div> 
+                <div class="grillaHeader__sloganHeader">
+                    <p class="h3 c-ocre">Calculá y generá tu próximo recibo de sueldo</p>
+                </div>                   
+            </div>
+        </div>
+    </header>  
+    <!--Fin Header------------------------------------------------------------------------------------------>
+
+    <main class="container-lg">
+        <div class="espacio"></div>
+        
+        <h1 class="h1Titulo" id="test">
+            Calculadora de salarios mínimos de la industria informática
+        </h1>
+
+        <div class="espacio"></div>
+
+        <h2 class="h2Titulo">Con esta herramienta vas a poder visualizar tu recibo de sueldo potencial cada mes y más información</h2>
+
+        <div class="espacio"></div>
+        <div class="row justify-content-center" id="botonRecupero">
+            <button type="button" class="btn btn-outline-dark btn-lg" onclick="recuperarDatos()">RECUPERAR DATOS PREVIOS</button>
+        </div>
+        <div class="espacio"></div>
+
+        <form id="formMinuto">
+            <label><h4>Ingresá tu nombre y apellido</h4></label>
+            <div><input class="form-control list-group-item-success" type="text" id="nombre" required></input></div>
+
+            <div class="espacio"></div>
+
+            <label><h4>Ingresá la empresa donde trabajás</h4></label>
+            <div><input class="form-control list-group-item-success" type="text" id="empresa" required></input></div>
+
+            <div class="espacio"></div>
+
+            <label><h4>Ingresá el año en que empezaste a trabajar</h4></label>
+            <div><input class="form-control list-group-item-success" type="text" id="anioingreso" required></input></div>
+
+            <div class="espacio"></div>
+
+            <label><h4>Ingresá el número de mes en el que ingresaste</h4></label>
+            <div><input class="form-control list-group-item-success" type="text" id="mesingreso" required></input></div>
+
+            <div class="espacio"></div>
+
+            <label><h4>Seleccioná el area donde te desempeñás</h4></label>
+            <select id="seleccionArea" class="form-select">
+                <option value="1"><option>Administración IT, Soporte, Operaciones y Planificación</option>
+                <option value="2"><option>Investigación y Desarrollo</option>
+                <option value="3"><option>Comercial</option>
+                <option value="4"><option>Administrativo</option>
+                <option value="5"><option>Personal Ejecutivo</option>
+            </select>
+
+            <div class="espacio"></div>
+
+            <label><h4>Seleccioná la categoría</h4></label>
+            <select id="categorias" class="form-select">
+            </select><br>
+
+            <div class="espacio"></div>
+
+            <label><h4>Seleccioná tu seniority</h4></label>
+            <select id="senioriti" class="form-select">
+                <option value="1"><option>Junior</option>
+                <option value="2"><option>Semi-Senior</option>
+                <option value="3"><option>Senior</option>
+            </select>
+
+            <div class="espacio"></div>
+
+            <label><h4>¿Usás un idioma extranjero como herramienta para poder desempeñar sus tareas con normalidad?</h4><p class="fw-lighter fst-italic">Entiéndase manejo verbal y escrito</p></label>
+            <div class="form-check">
+                Si<input class="form-check-input" type="radio" name="idiomaRad" onchange="radioIdioma(this);" value="SI"><br>
+               
+                No<input class="form-check-input" type="radio" name="idiomaRad" onchange="radioIdioma(this);" value="NO">                
+            </div>
+
+            <div class="espacio"></div>
+
+
+            <label><h4>¿Tenés un título de grado de una carrera afín a Ingeniería de Sistemas?</h4><p class="fw-lighter fst-italic">Aplica solo para carreras terciarias y/o universitarias de 4 años o más.</p><p class="fw-lighter fst-italic">No seleccionar sino aplica.</p></label>
+            <div class="form-check">
+                Título de grado de 4 años de estudio<input class="form-check-input" type="radio" name="tituloRad" onchange="radioTitulo(this);" value="4"><br>
+                
+                Título de grado de 5 años de estudio<input class="form-check-input" type="radio" name="tituloRad" onchange="radioTitulo(this);" value="5">
+            </div>
+
+            <div class="espacio"></div>
+
+            <label><h4 class="fw-bold">Adicional por función:</h4><h5>¿Cumplís un rol de "Lider" o "Coordinador" dentro de tu equipo?</h5><p class="fw-lighter fst-italic">No seleccionar sino aplica.</p></label>
+            <div class="form-check">
+                Lider<input class="form-check-input" type="radio" name="tituloRad" onchange="radioFuncion(this);" value="Lider"><br>
+
+                Coordinador<input class="form-check-input" type="radio" name="tituloRad" onchange="radioFuncion(this);" value="Coordinador">
+            </div>
+
+            <div class="espacio"></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-4">
+                        <button type="button" class="btn btn-outline-dark btn-lg" onclick="renderRecibo()">CREAR Y VISUALIZAR RECIBO EN PDF</button>
+                    </div>
+                    <div class="col-4">
+                        <button type="button" class="btn btn-outline-dark btn-lg" onclick="calcularVacacioes()">CALCULAR DÍAS DE VACACIONES</button>
+                    </div>
+                    
+            </div>
+        </form>
+        <div class="espacio"></div>
+
+        <div id="#iframeContainer"></div>
+
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.4/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.4/vfs_fonts.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js\script.js"></script>
+</body>
+</html>
