@@ -94,11 +94,14 @@ function areas(){
             objetoUsuario.area = menuPrincipal.value
             crearOpcion = document.getElementById("categorias");
             crearOpcion.innerHTML = '';
-
+            //Crear opción deshabilitada para clarificar que se debe elegir una categoría
             const optionDefA = document.createElement("option");
             const nodoTextoDefA = document.createTextNode("Seleccionar categoría");
+            optionDefA.selected = true
+            optionDefA.disabled = true            
             optionDefA.appendChild(nodoTextoDefA);
             crearOpcion.appendChild(optionDefA);
+            
             for (var i = 0; i < arrayCategorias.length; i++) 
             {
                 if(arrayCategorias[i].codigo.startsWith("A"))
@@ -116,9 +119,11 @@ function areas(){
             objetoUsuario.area = menuPrincipal.value
             crearOpcion = document.getElementById("categorias");
             crearOpcion.innerHTML = '';
-
+            //Crear opción deshabilitada para clarificar que se debe elegir una categoría
             const optionDefB = document.createElement("option");
             const nodoTextoDefB = document.createTextNode("Seleccionar categoría");
+            optionDefB.selected = true
+            optionDefB.disabled = true 
             optionDefB.appendChild(nodoTextoDefB);
             crearOpcion.appendChild(optionDefB);
             for (var i = 0; i < arrayCategorias.length; i++) 
@@ -138,8 +143,11 @@ function areas(){
             objetoUsuario.area = menuPrincipal.value
             crearOpcion = document.getElementById("categorias");
             crearOpcion.innerHTML = '';
+            //Crear opción deshabilitada para clarificar que se debe elegir una categoría
             const optionDefC = document.createElement("option");
             const nodoTextoDefC = document.createTextNode("Seleccionar categoría");
+            optionDefC.selected = true
+            optionDefC.disabled = true 
             optionDefC.appendChild(nodoTextoDefC);
             crearOpcion.appendChild(optionDefC);
             for (var i = 0; i < arrayCategorias.length; i++) 
@@ -159,9 +167,11 @@ function areas(){
             objetoUsuario.area = menuPrincipal.value
             crearOpcion = document.getElementById("categorias");
             crearOpcion.innerHTML = '';
-
+            //Crear opción deshabilitada para clarificar que se debe elegir una categoría
             const optionDefD = document.createElement("option");
             const nodoTextoDefD = document.createTextNode("Seleccionar categoría");
+            optionDefD.selected = true
+            optionDefD.disabled = true 
             optionDefD.appendChild(nodoTextoDefD);
             crearOpcion.appendChild(optionDefD);
             for (var i = 0; i < arrayCategorias.length; i++) 
@@ -181,9 +191,11 @@ function areas(){
             objetoUsuario.area = menuPrincipal.value
             crearOpcion = document.getElementById("categorias");
             crearOpcion.innerHTML = '';
-
+            //Crear opción deshabilitada para clarificar que se debe elegir una categoría
             const optionDefE = document.createElement("option");
             const nodoTextoDefE = document.createTextNode("Seleccionar categoría");
+            optionDefE.selected = true
+            optionDefE.disabled = true 
             optionDefE.appendChild(nodoTextoDefE);
             crearOpcion.appendChild(optionDefE);
             for (var i = 0; i < arrayCategorias.length; i++) 
