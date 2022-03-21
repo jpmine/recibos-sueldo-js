@@ -94,6 +94,11 @@ function areas(){
             objetoUsuario.area = menuPrincipal.value
             crearOpcion = document.getElementById("categorias");
             crearOpcion.innerHTML = '';
+
+            const optionDefA = document.createElement("option");
+            const nodoTextoDefA = document.createTextNode("Seleccionar categoría");
+            optionDefA.appendChild(nodoTextoDefA);
+            crearOpcion.appendChild(optionDefA);
             for (var i = 0; i < arrayCategorias.length; i++) 
             {
                 if(arrayCategorias[i].codigo.startsWith("A"))
@@ -111,6 +116,11 @@ function areas(){
             objetoUsuario.area = menuPrincipal.value
             crearOpcion = document.getElementById("categorias");
             crearOpcion.innerHTML = '';
+
+            const optionDefB = document.createElement("option");
+            const nodoTextoDefB = document.createTextNode("Seleccionar categoría");
+            optionDefB.appendChild(nodoTextoDefB);
+            crearOpcion.appendChild(optionDefB);
             for (var i = 0; i < arrayCategorias.length; i++) 
             {
                 if(arrayCategorias[i].codigo.startsWith("B"))
@@ -128,6 +138,10 @@ function areas(){
             objetoUsuario.area = menuPrincipal.value
             crearOpcion = document.getElementById("categorias");
             crearOpcion.innerHTML = '';
+            const optionDefC = document.createElement("option");
+            const nodoTextoDefC = document.createTextNode("Seleccionar categoría");
+            optionDefC.appendChild(nodoTextoDefC);
+            crearOpcion.appendChild(optionDefC);
             for (var i = 0; i < arrayCategorias.length; i++) 
             {
                 if(arrayCategorias[i].codigo.startsWith("C"))
@@ -145,6 +159,11 @@ function areas(){
             objetoUsuario.area = menuPrincipal.value
             crearOpcion = document.getElementById("categorias");
             crearOpcion.innerHTML = '';
+
+            const optionDefD = document.createElement("option");
+            const nodoTextoDefD = document.createTextNode("Seleccionar categoría");
+            optionDefD.appendChild(nodoTextoDefD);
+            crearOpcion.appendChild(optionDefD);
             for (var i = 0; i < arrayCategorias.length; i++) 
             {                
                 if(arrayCategorias[i].codigo.startsWith("D"))
@@ -162,6 +181,11 @@ function areas(){
             objetoUsuario.area = menuPrincipal.value
             crearOpcion = document.getElementById("categorias");
             crearOpcion.innerHTML = '';
+
+            const optionDefE = document.createElement("option");
+            const nodoTextoDefE = document.createTextNode("Seleccionar categoría");
+            optionDefE.appendChild(nodoTextoDefE);
+            crearOpcion.appendChild(optionDefE);
             for (var i = 0; i < arrayCategorias.length; i++) 
             {                
                 if(arrayCategorias[i].codigo.startsWith("E"))
