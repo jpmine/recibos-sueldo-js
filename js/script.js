@@ -224,7 +224,7 @@ let anioIngreso = document.getElementById('anioingreso')
 anioIngreso.onchange = () => {objetoUsuario.ingreso = parseInt(anioIngreso.value)}
 
 let mesIngreso = document.getElementById('mesingreso')
-mesIngreso.onchange = () => {objetoUsuario.mes = parseInt(mesIngreso.value)}
+mesIngreso.oninput = () => {objetoUsuario.mes = parseInt(mesIngreso.value)}
 
 let categoriaUsuario = document.getElementById('categorias')
 categoriaUsuario.oninput = () => {
@@ -761,10 +761,6 @@ function calcularVacacioes()
     //Cálculo de años de antiguedad
     fechaActual = new Date().getFullYear();
     antiguedad = fechaActual - ingreso;
-    console.log(antiguedad)
-    console.log(mes)
-    console.log(ingreso)
-    console.log(fechaActual)
 
     //Cálculo de días de vacaciones según ley
     if(antiguedad > 1 && antiguedad < 5)
@@ -788,8 +784,9 @@ function calcularVacacioes()
     {
         if(mes < 6)
         {
-            compensacion = new Date().getMonth();
-            vacaciones = compensacion +1 -mes
+            //Obtención del current mes sumando 1 para calcular a partir de 1 y no de 0
+            compensacion = new Date().getMonth() + 1;
+            vacaciones = compensacion - mes
         }
         else
         {
