@@ -614,7 +614,7 @@ function renderRecibo()
                         ],   
                         [
                             {
-                                text: 'Adicional por función (del 10% al 20%)',
+                                text: 'Adicional por liderazgo o coordinación(del 10% al 20%)',
                                 fontSize: 9,
                                 bold: true
                             }, 
