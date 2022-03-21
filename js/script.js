@@ -251,6 +251,12 @@ senioritiUsuario.oninput = () => {
                                     }                                    
                                  }            
 
+//Función para saber si es afiliado/a para calcular aporte
+function radioAfiliadx(afi) {
+    estadoAfiliacion = afi.value
+    objetoUsuario.afiliacion = estadoAfiliacion;
+} 
+
 //Función para saber si aplica el plus por uso de idioma extranjero
 function radioIdioma(src) {
     adicionalIdioma = src.value
@@ -323,7 +329,7 @@ else
 function renderRecibo()
 {
     //Desestructuración de objeto con los datos del usuario
-    const {area, nombre, empresa, ingreso, mes, categoria, codigo, senioriti, salarioConvenio, idioma, titulo, funcion} = objetoUsuario; 
+    const {area, nombre, empresa, ingreso, mes, categoria, codigo, senioriti, salarioConvenio, idioma, titulo, funcion, afiliacion} = objetoUsuario; 
     //Fecha actual para recibo
     let hoy = new Date(); 
     let fechaRecibo = hoy.getFullYear()+'-'+(hoy.getMonth()+1)+'-'+hoy.getDate();
@@ -334,6 +340,9 @@ function renderRecibo()
 
     //Cálculo plus por aniguedad según convenio
     plusAntiguedad = salarioConvenio * (antiguedad * 0.01);
+
+    //Cálculo aporte sindical
+    afiliacion == "SI" ? aporteSindicato = salarioConvenio * 0.02 : aporteSindicato = 0
 
     //Cálculo plus por presentimos
     plusPresentismo = salarioConvenio * 0.02;
@@ -379,7 +388,7 @@ function renderRecibo()
     aporteObraSocial = salarioConvenio * 0.03;
 
     //Cálculo de salario neto, en mano
-    salarioNeto = salarioConvenio + plusAntiguedad + plusPresentismo + plusIdioma + plusTitulo - aporteJubilacion - aporteInstituto - aporteObraSocial;
+    salarioNeto = salarioConvenio + plusAntiguedad + plusPresentismo + plusIdioma + plusTitulo - aporteJubilacion - aporteInstituto - aporteObraSocial -aporteSindicato;
 
     //Cálculo de días de vacaciones según ley
     if(antiguedad > 1 && antiguedad < 5)
@@ -670,6 +679,23 @@ function renderRecibo()
                                 bold: true
                             }                        
                             
+                        ],
+                        [
+                            {
+                                text: 'Afiliación Unión Informática (2%)',
+                                fontSize: 9,
+                                bold: true
+                            }, 
+                            { 
+                    
+                            },
+                            { 
+                                text: aporteSindicato.toFixed(2),
+                                alignment: 'center',
+                                fontSize: 9,
+                                bold: true
+                            }                        
+                            
                         ],                        
                     ]
                 }
@@ -764,7 +790,7 @@ function calcularVacacioes()
     }
     Swal.fire(
         'Te corresponden ' + vacaciones + ' días de vacaciones por ley',
-        'Tenés 1 semana extra por Convenio de Trabajo Unión Informática',
+        'Si estás afiliado/a a la Unión Informática tenés 1 semana extra libre por Convenio.',
         'success'
       )
 }
