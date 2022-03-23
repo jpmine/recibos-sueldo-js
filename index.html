@@ -65,7 +65,7 @@
 
             <div class="espacio"></div>
 
-            <label><h4>Ingresá el número de mes en el que ingresaste</h4></label>
+            <label><h4>Seleccioná el mes en el que ingresaste</h4></label>
             <select id="mesingreso" required class="form-select">
                 <option selected disabled>Seleccionar mes</option>
                 <option value="1">Enero</option>
@@ -151,19 +151,26 @@
             <div class="espacio"></div>
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-sm-12 col-md-12 col-lg-4 ">
-                        <button type="button" class="btn btn-outline-dark btn-lg text-center" onclick="renderRecibo()">CREAR Y VISUALIZAR RECIBO EN PDF</button>
+
+                    <div class="col-sm-12 col-md-12 col-lg-4 text-center">
+                        <button type="button" class="btn btn-outline-dark btn-lg" onclick="renderRecibo()">CREAR Y VISUALIZAR RECIBO EN PDF</button>
                     </div>
-                    
-                    <div class="col-sm-12 col-md-12 col-lg-4 ">
-                        <button type="button" class="btn btn-outline-dark btn-lg text-center" onclick="calcularVacacioes()">CALCULAR DÍAS DE VACACIONES</button>
+
+                    <div class="col-sm-12 col-md-12 col-lg-4 text-center">
+                        <button type="button" class="btn btn-outline-dark btn-lg" onclick="renderReciboHTML()">DESPLEGAR RECIBO</button>
                     </div>
-                    
+
+                    <div class="col-sm-12 col-md-12 col-lg-4 text-center">
+                        <button type="button" class="btn btn-outline-dark btn-lg" onclick="calcularVacacioes()">CALCULAR DÍAS DE VACACIONES</button>
+                    </div>                    
+                </div>
             </div>
         </form>
         <div class="espacio"></div>
 
-        <div id="#iframeContainer"></div>
+        <div id="reciboHtml"></div>
+        <div class="espacio"></div>
+        <div class="espacio"></div>
 
     </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.4/pdfmake.min.js"></script>
@@ -171,4 +178,16 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="js\script.js"></script>
 </body>
+ <footer>
+    <div class="container-fluid">
+        <div class="grillaHeader">
+            <div class="grillaHeader__logoHeader">
+                <a href="index.html"><img src="./images/icon-calc-ft.png" alt="Logotipo minuto IT" class="p-3 img-fluid"></a>
+            </div> 
+            <div class="grillaHeader__sloganHeader">
+                <p class="c-ocre">Generador de recibos de sueldo desarrollado por Minetti Juan Pablo</p>
+            </div>                   
+        </div>
+    </div>
+ </footer>
 </html>
