@@ -75,8 +75,15 @@ html{
     display: block;
     row-gap: 12px;
     border: solid 4px;
-    border-color: rgb(136, 219, 10);
-    padding: 16px;
+    border-color: rgb(0, 0, 0);
+}
+
+.reciboDatos{
+  padding: 24px;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  font-size: 20px;
+  background-color: #f1f1f1;
 }
 
 /* COLORES ---------------------------------------------------------------------------- */
