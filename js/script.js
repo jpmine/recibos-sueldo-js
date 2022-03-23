@@ -81,6 +81,17 @@ arrayCategorias.push(categoriaC1, categoriaC2, categoriaC3);
 arrayCategorias.push(categoriaD1, categoriaD2, categoriaD3, categoriaD4, categoriaD5);
 arrayCategorias.push(categoriaE1, categoriaE2, categoriaE3, categoriaE4, categoriaE5);
 
+//Actualización de salarios por paritaria 2021 - aumento de 5% en marzo
+for (var i = 0; i < arrayCategorias.length; i++) 
+{
+    arrayCategorias[i].salarioJr += arrayCategorias[i].salarioJr *0.0454547
+
+    arrayCategorias[i].salarioSmSr += arrayCategorias[i].salarioSmSr *0.0454547
+
+    arrayCategorias[i].salarioSr += arrayCategorias[i].salarioSr *0.0454547
+
+}
+
 menuPrincipal = document.getElementById('seleccionArea');
 menuPrincipal.addEventListener("change", areas);
 
@@ -310,9 +321,9 @@ if(previoUsuario)
         text: "Detectamos que ya utilizaste esta herramienta. Querés cargar automáticamente los datos que ya usaste?",
         icon: 'info',
         showCancelButton: true,
-        confirmButtonText: 'Si! usar los mismos datos',
-        cancelButtonText: 'No usar y eliminar datos',
-        reverseButtons: true
+        confirmButtonText: 'Usar datos previos',
+        cancelButtonText: 'No usar y eliminar',
+        reverseButtons: false
       }).then((result) => {
         if (result.isConfirmed) {
             recuperarDatos()
@@ -334,10 +345,7 @@ else
     document.getElementById('botonRecupero').classList.add('reciboClaseNone');
 }
 
-
-
-
-//Funcion para mostrar los datos ingresados y los cálculos del salario
+//Funcion para mostrar los datos ingresados, los cálculos del salario y crear un PDF con el recibo
 function renderRecibo()
 {
     //Desestructuración de objeto con los datos del usuario
@@ -802,4 +810,241 @@ function calcularVacacioes()
         'Si estás afiliado/a a la Unión Informática tenés 1 semana extra libre por Convenio.',
         'success'
       )
+}
+
+//Funcion para mostrar el recibo en el HTML
+function renderReciboHTML()
+{
+    //Desestructuración de objeto con los datos del usuario
+    const {area, nombre, empresa, ingreso, mes, categoria, codigo, senioriti, salarioConvenio, idioma, titulo, funcion, afiliacion} = objetoUsuario; 
+    //Fecha actual para recibo
+    let hoy = new Date(); 
+    let fechaRecibo = hoy.getFullYear()+'-'+(hoy.getMonth()+1)+'-'+hoy.getDate();
+
+    //Cálculo de años de antiguedad
+    fechaActual = new Date().getFullYear();
+    antiguedad = fechaActual - ingreso;
+
+    //Cálculo plus por aniguedad según convenio
+    plusAntiguedad = salarioConvenio * (antiguedad * 0.01)
+    pa = plusAntiguedad.toFixed(2)
+
+    //Cálculo aporte sindical
+    afiliacion == "SI" ? aporteSindicato = salarioConvenio * 0.02 : aporteSindicato = 0
+    as = aporteSindicato.toFixed(2)
+
+    //Cálculo plus por presentimos
+    plusPresentismo = salarioConvenio * 0.02;
+    pp = plusPresentismo.toFixed(2)
+
+    //Cálculo adicional Idioma Extranjero
+    idioma == "SI" ? plusIdioma = salarioConvenio * 0.08 : plusIdioma = 0
+    pi = plusIdioma.toFixed(2)
+
+    //Cálculo adicional título de grado
+    if(titulo == "4")
+    {
+        plusTitulo = salarioConvenio * 0.08;
+    }
+    else if(titulo == "5")
+    {
+        plusTitulo = salarioConvenio * 0.12;
+    }
+    else
+    {
+        plusTitulo = 0;
+    }
+    pt = plusTitulo.toFixed(2)
+
+    //Cáculo adicional por función
+    if(funcion == "Lider")
+    {
+        plusFuncion = salarioConvenio * 0.2;
+    }
+    else if(funcion == "Coordinador")
+    {
+        plusFuncion = salarioConvenio * 0.1;
+    }
+    else
+    {
+        plusFuncion = 0;
+    }
+    pf = plusFuncion.toFixed(2)
+
+    //Cálculo de aporte jubilatorio del empleado
+    aporteJubilacion = salarioConvenio * 0.11;
+    aj = aporteJubilacion.toFixed(2)
+
+    //Cálculo de aporte de INNSJPJ
+    aporteInstituto = salarioConvenio * 0.03;
+    ai = aporteInstituto.toFixed(2)
+
+    //Cálculo de aporte a obra social
+    aporteObraSocial = salarioConvenio * 0.03;
+    aos = aporteObraSocial.toFixed(2)
+
+    sb = salarioConvenio.toFixed(2)
+
+    //Cálculo de salario neto, en mano
+    salarioNeto = salarioConvenio + plusAntiguedad + plusPresentismo + plusIdioma + plusTitulo - aporteJubilacion - aporteInstituto - aporteObraSocial -aporteSindicato;
+    sn = salarioNeto.toFixed(2)
+
+    //Cálculo de días de vacaciones según ley
+    if(antiguedad > 1 && antiguedad < 5)
+    {
+        vacaciones = 14;
+    }
+    else if (antiguedad >= 5 && antiguedad < 10)
+    {
+        vacaciones = 21;
+    }
+    else if (antiguedad >= 10 && antiguedad < 20)
+    {
+        vacaciones = 28;
+    }
+    else if (antiguedad >= 20)
+    {
+        vacaciones = 35;
+    }
+    // En caso que la antiguedad sea menor a 1 año hay que desdoblar el cálculo según la ley de contrato de trabajo indica en su artículo N°151
+    else if(anioIngreso == fechaActual)
+    {
+        antiguedad = "El plus comienza a pagarse luego de tener como mínimo 1 año de antigûedad."
+        compensacionVacaciones = 12 - mesIngreso
+        if(compensacionVacaciones < 6)
+        {
+            vacaciones = compensacionVacaciones
+        }
+        else
+        {
+            vacaciones = 14;
+        }
+    }
+    else
+    {
+        vacaciones = "No es posible calcularlas."
+    }
+
+    if(anioIngreso != fechaActual)
+    {
+        antiguedad = plusAntiguedad.toFixed(2) + ' por '  + antiguedad + ' años trabajados.'
+    }
+
+    console.log(vacaciones)
+
+    //Guardado de objeto con los datos del usuario en el LocalStorage
+    seleccionPrevia = JSON.stringify(objetoUsuario);
+    localStorage.setItem("SeleccionPrevia", seleccionPrevia);
+
+    document.getElementById('reciboHtml').classList.add('reciboClaseDisplay');
+    //document.getElementById('reciboHtml').classList.add('reciboDatos');
+    let recibo = document.getElementById('reciboHtml')
+    recibo.innerHTML =`
+    <div class="container reciboDatos">
+    <div class="row align-items-start">
+        <div class="col">
+        <strong>Empleado/a:</strong> ${nombre}
+        </div>
+        <div class="col">
+        <strong>Empresa:</strong> ${empresa}
+        </div>
+        <div class="col">
+        <strong>Fecha:</strong> ${fechaRecibo}
+        </div>
+    </div>
+    <div class="row align-items-center">
+        <div class="col">
+        <strong>Area:</strong> ${area}
+        </div>
+        <div class="col">
+        <strong>Categoría:</strong> ${categoria}
+        </div>
+        <div class="col">
+        <strong>Seniority:</strong> ${senioriti}
+        </div>
+    </div>
+    <div class="row align-items-center">
+        <div class="col offset-md-8">
+            <strong>Sueldo Bruto: </strong> ${sb}
+        </div>
+    </div>
+    </div>
+    <table class="table table-success table-striped">
+        <thead>
+        <tr>
+        <th scope="col">Conceptos / Descripción</th>
+        <th scope="col">Haberes</th>
+        <th scope="col">Retenciones</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">Salario Bruto</th>
+                <td>${sb}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <th scope="row">Plus por Antigüedad (1% por año trabajado)</th>
+                <td>${pa}</td>
+                <td></td>
+            </tr>
+            <tr>
+            <th scope="row">Plus por Presentismo (2%)</th>
+            <td>${pp}</td>
+            <td></td>
+            </tr>
+            <tr>
+            <th scope="row">Adicional Idioma Extranjero (8%)</th>
+            <td>${pi}</td>
+            <td></td>
+            </tr>
+            <tr>
+            <th scope="row">Adicional Título de Grado (del 8% al 12%)</th>
+            <td>${pt}</td>
+            <td></td>
+            </tr>
+            <tr>
+            <th scope="row">Adicional por liderazgo o coordinación(del 10% al 20%)</th>
+            <td>${pf}</td>
+            <td></td>
+            </tr>
+            <tr>
+            <th scope="row">Afiliación Unión Informática (2%)</th>
+            <td></td>
+            <td>${as}</td>
+            </tr>
+            <tr>
+            <th scope="row">Aporte Jubilatorio (11%)</th>
+            <td></td>
+            <td>${aj}</td>
+            </tr>
+            <tr>
+            <th scope="row">Aporte INSSJP (3%)</th>
+            <td></td>
+            <td>${ai}</td>
+            </tr>
+            <tr>
+            <th scope="row">Obra Social (3%)</th>
+            <td></td>
+            <td>${aos}</td>
+            </tr>
+            <tr>
+            <th scope="row"><h5><strong>SALARIO NETO</strong></h5></th>
+            <td></td>
+            <td><h4>${sn}</h4></td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <div class="card">
+    <h5 class="card-header">Información</h5>
+    <div class="card-body">
+        <h5 class="card-title">Paritaria Unión Informática 2020/2021 = 50% de incremento salarial</h5>
+        <p class="card-text">Reintegro por Guardería: $8.500 - Tope salarial $100.000</p>
+        <p>Salario Mínimo: $65.493,75 | Costo por Km: $33</p>
+        <p>Aporte Sindical: 2% sobre el salario bruto</p>
+        <p>#SemanaUI: 7 días extra de licencia para afiliados/as.</p>
+        <a href="https://unioninformatica.org/contacto/" class="btn btn-outline-dark">Afiliarse</a>
+    </div>
+    </div>`
 }
