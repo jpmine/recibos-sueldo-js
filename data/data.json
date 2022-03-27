@@ -1,4 +1,5 @@
 [
+    {"nombre":"Administrador de Redes", "codigo": "A.1", "salarioJr": 83596.58, "salarioSmSr": 91199.77, "salarioSr": 98802.96}, 
     {"nombre":"Administrador de Sistemas Operativos", "codigo": "A.2", "salarioJr": 86855.09, "salarioSmSr": 94784.13, "salarioSr": 102713.17}, 
     {"nombre":"Administrador de Bases de Datos", "codigo": "A.3", "salarioJr": 89027.43, "salarioSmSr": 97173.71, "salarioSr": 105319.98}, 
     {"nombre":"Administrador de Seguridad", "codigo": "A.4", "salarioJr": 89027.43, "salarioSmSr": 97173.71, "salarioSr": 105319.98}, 
