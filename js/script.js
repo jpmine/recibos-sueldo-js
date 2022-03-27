@@ -504,28 +504,35 @@ function renderRecibo()
                         [
                             { 
                                 text: 'NOMBRE: ' + nombre,
-                                fontSize: 12,
+                                fontSize: 11,
                                 bold: true,
                             }
                         ],
                         [
                             { 
                                 text: 'EMPLEADOR: ' + empresa,
-                                fontSize: 12,
+                                fontSize: 11,
                                 bold: true,
                             }
                         ],
                         [
                             { 
                                 text: 'AREA: ' + area,
-                                fontSize: 12,
+                                fontSize: 11,
                                 bold: true,
                             }
                         ],
                         [
                             { 
                                 text: 'CATEGORÍA: ' + categoria,
-                                fontSize: 12,
+                                fontSize: 11,
+                                bold: true
+                            }
+                        ],
+                        [
+                            { 
+                                text: 'SENIORITY: ' + senioriti,
+                                fontSize: 11,
                                 bold: true
                             }
                         ],
@@ -662,7 +669,23 @@ function renderRecibo()
                     
                             }
                             
-                        ],   
+                        ],
+                        [
+                            {
+                                text: 'Afiliación Unión Informática (2%)',
+                                fontSize: 9,
+                                bold: true
+                            }, 
+                            { 
+                    
+                            },
+                            { 
+                                text: aporteSindicato.toFixed(2),
+                                alignment: 'center',
+                                fontSize: 9,
+                                bold: true
+                            }
+                        ],         
                         [
                             {
                                 text: 'Aporte Jubilatorio (11%)',
@@ -713,24 +736,7 @@ function renderRecibo()
                                 bold: true
                             }                        
                             
-                        ],
-                        [
-                            {
-                                text: 'Afiliación Unión Informática (2%)',
-                                fontSize: 9,
-                                bold: true
-                            }, 
-                            { 
-                    
-                            },
-                            { 
-                                text: aporteSindicato.toFixed(2),
-                                alignment: 'center',
-                                fontSize: 9,
-                                bold: true
-                            }                        
-                            
-                        ],                        
+                        ],                  
                     ]
                 }
             },
@@ -759,7 +765,7 @@ function renderRecibo()
                             {
                                 text: 'Salario a cobrar: ' + salarioNeto.toFixed(2),
                                 alignment: 'right',
-                                fontSize: 12,
+                                fontSize: 11,
                                 bold: true                                
                             }
                         ],                                                
