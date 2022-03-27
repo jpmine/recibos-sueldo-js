@@ -76,7 +76,7 @@
 const arrayCategorias = []
 //Petición a JSON local para traer info de categorías
 
-fetch('../data/data2.json')
+fetch('./data/data.json')
   .then(response => response.json())
   .then(json => console.log(json))
 
