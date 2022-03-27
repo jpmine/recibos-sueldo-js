@@ -82,6 +82,9 @@ fetch('./data/data.json')
     for (var i = 0; i < data.length; i++) 
             {
                 arrayCategorias.push(data[i])
+                arrayCategorias[i].salarioJr += arrayCategorias[i].salarioJr *0.0454547
+                arrayCategorias[i].salarioSmSr += arrayCategorias[i].salarioSmSr *0.0454547
+                arrayCategorias[i].salarioSr += arrayCategorias[i].salarioSr *0.0454547
                 console.log(arrayCategorias[i])
             }
 })
@@ -93,7 +96,7 @@ fetch('./data/data.json')
 // arrayCategorias.push(categoriaE1, categoriaE2, categoriaE3, categoriaE4, categoriaE5);
 
 //Actualización de salarios por paritaria 2021 - aumento de 5% en marzo
-for (var i = 0; i < arrayCategorias.length; i++) 
+/* for (var i = 0; i < arrayCategorias.length; i++) 
 {
     arrayCategorias[i].salarioJr += arrayCategorias[i].salarioJr *0.0454547
 
@@ -101,7 +104,7 @@ for (var i = 0; i < arrayCategorias.length; i++)
 
     arrayCategorias[i].salarioSr += arrayCategorias[i].salarioSr *0.0454547
 
-}
+} */
 
 menuPrincipal = document.getElementById('seleccionArea');
 menuPrincipal.addEventListener("change", areas);
