@@ -1,85 +1,92 @@
 //Constructor de objeto Categorias del convenio, nomenclatura y respectivos salarios de seniorities al mes de febrero 2022
-class CategoriasConvenio{
-    constructor(a, b, c, d, e){
-        this.nombre = a;
-        this.codigo = b;
-        this.salarioJr = c;
-        this.salarioSmSr = d;
-        this.salarioSr = e;
-    }
-}
+// class CategoriasConvenio{
+//     constructor(a, b, c, d, e){
+//         this.nombre = a;
+//         this.codigo = b;
+//         this.salarioJr = c;
+//         this.salarioSmSr = d;
+//         this.salarioSr = e;
+//     }
+// }
 
-//Reseteo del formulario
-document.getElementById('formMinuto').reset();
+// //Reseteo del formulario
+// document.getElementById('formMinuto').reset();
 
-//******************************************************************************************************************************************************/
-//Objetos categorías Administración IT, Soporte, Operaciones y Planificación
-const categoriaA1 = new CategoriasConvenio("Administrador de redes", "A.1", 83596.58, 91199.77, 98802.96);
-const categoriaA2 = new CategoriasConvenio("Administrador de Sistemas Operativos", "A.2", 86855.09, 94784.13, 102713.17);
-const categoriaA3 = new CategoriasConvenio("Administrador de Bases de Datos", "A.3", 89027.43, 97173.71, 105319.98);
-const categoriaA4 = new CategoriasConvenio("Administrador de Seguridad", "A.4", 89027.43, 97173.71, 105319.98);
-const categoriaA5 = new CategoriasConvenio("Auditor de Sistemas", "A.5", 85406.87, 93191.08, 100975.30);
-const categoriaA6 = new CategoriasConvenio("Soporte Técnico", "A.6", 67666.09, 73676.23, 79686.37);
-const categoriaA7 = new CategoriasConvenio("Operador / Data Entry", "A.7", 65493.75, 71286.66, 77079.57);
-const categoriaA8 = new CategoriasConvenio("Mesa de Ayuda", "A.8", 66941.98, 72879.71, 78817.44);
-const categoriaA9 = new CategoriasConvenio("Planificación", "A.9", 81677.68, 89088.98, 96500.28);
-const categoriaA10 = new CategoriasConvenio("Consultor en IT", "A.10", 92648.00, 101156.33, 109664.66);
-const categoriaA11 = new CategoriasConvenio("Especialista en IT", "A.11", 84320.70, 91996.30, 99671.90);
-const categoriaA12 = new CategoriasConvenio("Entrenador en IT", "A.12", 90837.72, 99165.02, 107492.32);
-const categoriaA13 = new CategoriasConvenio("Consultor Business Intelligence", "A.13", 107603.72, 117607.62, 127611.52);
-const categoriaA14 = new CategoriasConvenio("Community Manager", "A.14", 73514.70, 80109.70, 86704.70);
-const categoriaA15 = new CategoriasConvenio("Implementador", "A.15", 106935.31, 116872.37, 126809.43);
-const categoriaA16 = new CategoriasConvenio("Implementador ERP", "A.16", 89333.79, 97510.70, 105687.61);
+// //******************************************************************************************************************************************************/
+// //Objetos categorías Administración IT, Soporte, Operaciones y Planificación
+// const categoriaA1 = new CategoriasConvenio("Administrador de redes", "A.1", 83596.58, 91199.77, 98802.96);
+// const categoriaA2 = new CategoriasConvenio("Administrador de Sistemas Operativos", "A.2", 86855.09, 94784.13, 102713.17);
+// const categoriaA3 = new CategoriasConvenio("Administrador de Bases de Datos", "A.3", 89027.43, 97173.71, 105319.98);
+// const categoriaA4 = new CategoriasConvenio("Administrador de Seguridad", "A.4", 89027.43, 97173.71, 105319.98);
+// const categoriaA5 = new CategoriasConvenio("Auditor de Sistemas", "A.5", 85406.87, 93191.08, 100975.30);
+// const categoriaA6 = new CategoriasConvenio("Soporte Técnico", "A.6", 67666.09, 73676.23, 79686.37);
+// const categoriaA7 = new CategoriasConvenio("Operador / Data Entry", "A.7", 65493.75, 71286.66, 77079.57);
+// const categoriaA8 = new CategoriasConvenio("Mesa de Ayuda", "A.8", 66941.98, 72879.71, 78817.44);
+// const categoriaA9 = new CategoriasConvenio("Planificación", "A.9", 81677.68, 89088.98, 96500.28);
+// const categoriaA10 = new CategoriasConvenio("Consultor en IT", "A.10", 92648.00, 101156.33, 109664.66);
+// const categoriaA11 = new CategoriasConvenio("Especialista en IT", "A.11", 84320.70, 91996.30, 99671.90);
+// const categoriaA12 = new CategoriasConvenio("Entrenador en IT", "A.12", 90837.72, 99165.02, 107492.32);
+// const categoriaA13 = new CategoriasConvenio("Consultor Business Intelligence", "A.13", 107603.72, 117607.62, 127611.52);
+// const categoriaA14 = new CategoriasConvenio("Community Manager", "A.14", 73514.70, 80109.70, 86704.70);
+// const categoriaA15 = new CategoriasConvenio("Implementador", "A.15", 106935.31, 116872.37, 126809.43);
+// const categoriaA16 = new CategoriasConvenio("Implementador ERP", "A.16", 89333.79, 97510.70, 105687.61);
 
-//Objetos categorías I+D, Análisis,  Arquitectura, Diseño, Programación, Testeo y Calidad
-const categoriaB1 = new CategoriasConvenio("Investigación y Desarrollo (I+D)", "B.1", 72734.89, 79251.90, 82222.05);
-const categoriaB2 = new CategoriasConvenio("Analista de Sistemas", "B.2", 87217.15, 95182.39, 103147.64);
-const categoriaB3 = new CategoriasConvenio("Arquitecto de Soluciones IT", "B.3", 96268.56, 105138.95, 114009.34);
-const categoriaB4 = new CategoriasConvenio("Diseñador de Software", "B.4", 92648.00, 101156.33, 109664.66);
-const categoriaB5 = new CategoriasConvenio("Diseñador Web y Multimedia", "B.5", 90837.72, 99165.02, 107492.32);
-const categoriaB6 = new CategoriasConvenio("Programador", "B.6", 87217.15, 95182.39, 103147.64);
-const categoriaB7 = new CategoriasConvenio("Analista QA - Tester", "B.7", 66941.98, 72879.71, 78817.44);
-const categoriaB8 = new CategoriasConvenio("Responsable de Calidad", "B.8", 94458.28, 103147.64, 111837);
-const categoriaB9 = new CategoriasConvenio("Ingeniero de Software", "B.9", 104595.87, 114298.98, 124002.10);
-const categoriaB10 = new CategoriasConvenio("Desarrollador Mobile", "B.10", 82761.07, 90280.71, 97800.34);
-const categoriaB11 = new CategoriasConvenio("Desarrollador Web", "B.11", 81201.44, 88565.11, 95928.79);
-const categoriaB12 = new CategoriasConvenio("Desarrollador de Juegos - Game Developer", "B.12", 84543.50, 92241.38, 99939.26);
-const categoriaB13 = new CategoriasConvenio("Diseñador de Juegos - Game Designer", "B.13", 89311.51, 97486.19, 105660.87);
-const categoriaB14 = new CategoriasConvenio("Diseñador de Niveles de Juegos - Level Designer", "B.14", 79976.02, 87217.15, 94458.28);
-const categoriaB15 = new CategoriasConvenio("Access Management", "B.15", 69949.84, 76188.35, 82426.86);
-const categoriaB16 = new CategoriasConvenio("Analista UX (Usabilidad)", "B.16", 79530.41, 86726.98, 93923.55);
-const categoriaB17 = new CategoriasConvenio("Productor Digital", "B.17", 81786.30, 89208.46, 96630.62);
-const categoriaB18 = new CategoriasConvenio("Analytics Enablement Analyst", "B.18", 81786.30, 89208.46, 96630.62);
-const categoriaB19 = new CategoriasConvenio("Analytics Analyst", "B.19", 81786.30, 89208.46, 96630.62);
-const categoriaB20 = new CategoriasConvenio("Analista Big Data (Data Scientist)", "B.20", 95025.08, 103771.12, 112517.16);
+// //Objetos categorías I+D, Análisis,  Arquitectura, Diseño, Programación, Testeo y Calidad
+// const categoriaB1 = new CategoriasConvenio("Investigación y Desarrollo (I+D)", "B.1", 72734.89, 79251.90, 82222.05);
+// const categoriaB2 = new CategoriasConvenio("Analista de Sistemas", "B.2", 87217.15, 95182.39, 103147.64);
+// const categoriaB3 = new CategoriasConvenio("Arquitecto de Soluciones IT", "B.3", 96268.56, 105138.95, 114009.34);
+// const categoriaB4 = new CategoriasConvenio("Diseñador de Software", "B.4", 92648.00, 101156.33, 109664.66);
+// const categoriaB5 = new CategoriasConvenio("Diseñador Web y Multimedia", "B.5", 90837.72, 99165.02, 107492.32);
+// const categoriaB6 = new CategoriasConvenio("Programador", "B.6", 87217.15, 95182.39, 103147.64);
+// const categoriaB7 = new CategoriasConvenio("Analista QA - Tester", "B.7", 66941.98, 72879.71, 78817.44);
+// const categoriaB8 = new CategoriasConvenio("Responsable de Calidad", "B.8", 94458.28, 103147.64, 111837);
+// const categoriaB9 = new CategoriasConvenio("Ingeniero de Software", "B.9", 104595.87, 114298.98, 124002.10);
+// const categoriaB10 = new CategoriasConvenio("Desarrollador Mobile", "B.10", 82761.07, 90280.71, 97800.34);
+// const categoriaB11 = new CategoriasConvenio("Desarrollador Web", "B.11", 81201.44, 88565.11, 95928.79);
+// const categoriaB12 = new CategoriasConvenio("Desarrollador de Juegos - Game Developer", "B.12", 84543.50, 92241.38, 99939.26);
+// const categoriaB13 = new CategoriasConvenio("Diseñador de Juegos - Game Designer", "B.13", 89311.51, 97486.19, 105660.87);
+// const categoriaB14 = new CategoriasConvenio("Diseñador de Niveles de Juegos - Level Designer", "B.14", 79976.02, 87217.15, 94458.28);
+// const categoriaB15 = new CategoriasConvenio("Access Management", "B.15", 69949.84, 76188.35, 82426.86);
+// const categoriaB16 = new CategoriasConvenio("Analista UX (Usabilidad)", "B.16", 79530.41, 86726.98, 93923.55);
+// const categoriaB17 = new CategoriasConvenio("Productor Digital", "B.17", 81786.30, 89208.46, 96630.62);
+// const categoriaB18 = new CategoriasConvenio("Analytics Enablement Analyst", "B.18", 81786.30, 89208.46, 96630.62);
+// const categoriaB19 = new CategoriasConvenio("Analytics Analyst", "B.19", 81786.30, 89208.46, 96630.62);
+// const categoriaB20 = new CategoriasConvenio("Analista Big Data (Data Scientist)", "B.20", 95025.08, 103771.12, 112517.16);
 
-//Comercial
-const categoriaC1 = new CategoriasConvenio("Preventa", "C.1", 68390.21, 74472.76, 80555.31);
-const categoriaC2 = new CategoriasConvenio("Ventas", "C.2", 76355.45, 83234.53, 90113.60);
-const categoriaC3 = new CategoriasConvenio("Marketing", "C.3", 82293.18, 89766.03, 97238.88);
+// //Comercial
+// const categoriaC1 = new CategoriasConvenio("Preventa", "C.1", 68390.21, 74472.76, 80555.31);
+// const categoriaC2 = new CategoriasConvenio("Ventas", "C.2", 76355.45, 83234.53, 90113.60);
+// const categoriaC3 = new CategoriasConvenio("Marketing", "C.3", 82293.18, 89766.03, 97238.88);
 
-//Administrativo
-const categoriaD1 = new CategoriasConvenio("Administración, Finanzas y Contabilidad", "D.1", 73459.00, 80048.43, 86637.86);
-const categoriaD2 = new CategoriasConvenio("Recursos Humanos", "D.2", 76355.45, 83234.53, 90113.60);
-const categoriaD3 = new CategoriasConvenio("Relaciones Públicas, Comunicaciones y Asuntos Institucionales", "D.3", 83596.58, 91199.77, 98802.96);
-const categoriaD4 = new CategoriasConvenio("Servicios Generales y Mantenimiento", "D.4", 69114.32, 75269.28, 81424.24);
-const categoriaD5 = new CategoriasConvenio("Recepcionista", "D.5", 65493.75, 71286.66, 77079.57);
+// //Administrativo
+// const categoriaD1 = new CategoriasConvenio("Administración, Finanzas y Contabilidad", "D.1", 73459.00, 80048.43, 86637.86);
+// const categoriaD2 = new CategoriasConvenio("Recursos Humanos", "D.2", 76355.45, 83234.53, 90113.60);
+// const categoriaD3 = new CategoriasConvenio("Relaciones Públicas, Comunicaciones y Asuntos Institucionales", "D.3", 83596.58, 91199.77, 98802.96);
+// const categoriaD4 = new CategoriasConvenio("Servicios Generales y Mantenimiento", "D.4", 69114.32, 75269.28, 81424.24);
+// const categoriaD5 = new CategoriasConvenio("Recepcionista", "D.5", 65493.75, 71286.66, 77079.57);
 
-//Personal Ejecutivo
-const categoriaE1 = new CategoriasConvenio("Analista de Proyectos", "E.1", 89027.43, 97173.71, 105319.98);
-const categoriaE2 = new CategoriasConvenio("Asistente", "E.2", 82148.36, 89606.72, 97065.09);
-const categoriaE3 = new CategoriasConvenio("Líder de Proyectos (PM)", "E.3", 106044.09, 115892.03, 125739.97);
-const categoriaE4 = new CategoriasConvenio("Analista de Negocios", "E.4", 117852.71, 128881.51, 139910.31);
-const categoriaE5 = new CategoriasConvenio("Administrador de Proyectos Marketing Digital ", "E.5", 81786.30, 89208.46, 96630.62);
-//******************************************************************************************************************************************************/
+// //Personal Ejecutivo
+// const categoriaE1 = new CategoriasConvenio("Analista de Proyectos", "E.1", 89027.43, 97173.71, 105319.98);
+// const categoriaE2 = new CategoriasConvenio("Asistente", "E.2", 82148.36, 89606.72, 97065.09);
+// const categoriaE3 = new CategoriasConvenio("Líder de Proyectos (PM)", "E.3", 106044.09, 115892.03, 125739.97);
+// const categoriaE4 = new CategoriasConvenio("Analista de Negocios", "E.4", 117852.71, 128881.51, 139910.31);
+// const categoriaE5 = new CategoriasConvenio("Administrador de Proyectos Marketing Digital ", "E.5", 81786.30, 89208.46, 96630.62);
+// //******************************************************************************************************************************************************/
 
-//Creación de array general con objetos de categorías
 const arrayCategorias = []
-arrayCategorias.push(categoriaA1, categoriaA2, categoriaA3, categoriaA4, categoriaA5, categoriaA6, categoriaA7, categoriaA8, categoriaA9, categoriaA10, categoriaA11, categoriaA12, categoriaA13, categoriaA14, categoriaA15, categoriaA16);
-arrayCategorias.push(categoriaB1, categoriaB2, categoriaB3, categoriaB4, categoriaB5, categoriaB6, categoriaB7, categoriaB8, categoriaB9, categoriaB10, categoriaB11, categoriaB12, categoriaB13, categoriaB14, categoriaB15, categoriaB16, categoriaB17, categoriaB18, categoriaB19, categoriaB20);
-arrayCategorias.push(categoriaC1, categoriaC2, categoriaC3);
-arrayCategorias.push(categoriaD1, categoriaD2, categoriaD3, categoriaD4, categoriaD5);
-arrayCategorias.push(categoriaE1, categoriaE2, categoriaE3, categoriaE4, categoriaE5);
+//Petición a JSON local para traer info de categorías
+
+fetch('../data/data2.json')
+  .then(response => response.json())
+  .then(json => console.log(json))
+
+
+    //Creación de array general con objetos de categorías
+// arrayCategorias.push(categoriaA1, categoriaA2, categoriaA3, categoriaA4, categoriaA5, categoriaA6, categoriaA7, categoriaA8, categoriaA9, categoriaA10, categoriaA11, categoriaA12, categoriaA13, categoriaA14, categoriaA15, categoriaA16);
+// arrayCategorias.push(categoriaB1, categoriaB2, categoriaB3, categoriaB4, categoriaB5, categoriaB6, categoriaB7, categoriaB8, categoriaB9, categoriaB10, categoriaB11, categoriaB12, categoriaB13, categoriaB14, categoriaB15, categoriaB16, categoriaB17, categoriaB18, categoriaB19, categoriaB20);
+// arrayCategorias.push(categoriaC1, categoriaC2, categoriaC3);
+// arrayCategorias.push(categoriaD1, categoriaD2, categoriaD3, categoriaD4, categoriaD5);
+// arrayCategorias.push(categoriaE1, categoriaE2, categoriaE3, categoriaE4, categoriaE5);
 
 //Actualización de salarios por paritaria 2021 - aumento de 5% en marzo
 for (var i = 0; i < arrayCategorias.length; i++) 
