@@ -78,7 +78,14 @@ const arrayCategorias = []
 
 fetch('./data/data.json')
   .then(response => response.json())
-  .then(json => console.log(json))
+  .then( (data) => {
+    for (var i = 0; i < data.length; i++) 
+            {
+                arrayCategorias.push(data[i])
+                console.log(arrayCategorias[i])
+            }
+})
+
 
 
     //Creación de array general con objetos de categorías
