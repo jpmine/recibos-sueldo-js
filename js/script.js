@@ -74,7 +74,7 @@
 // //******************************************************************************************************************************************************/
 
 const arrayCategorias = []
-//Petición a JSON local para traer info de categorías
+//Petición a JSON local para traer info de categorías. Esto reemplaza a la construcción del objeto anterior y el array de objetos
 
 fetch('./data/data.json')
   .then(response => response.json())
@@ -85,10 +85,7 @@ fetch('./data/data.json')
                 console.log(arrayCategorias[i])
             }
 })
-
-
-
-    //Creación de array general con objetos de categorías
+//Creación de array general con objetos de categorías
 // arrayCategorias.push(categoriaA1, categoriaA2, categoriaA3, categoriaA4, categoriaA5, categoriaA6, categoriaA7, categoriaA8, categoriaA9, categoriaA10, categoriaA11, categoriaA12, categoriaA13, categoriaA14, categoriaA15, categoriaA16);
 // arrayCategorias.push(categoriaB1, categoriaB2, categoriaB3, categoriaB4, categoriaB5, categoriaB6, categoriaB7, categoriaB8, categoriaB9, categoriaB10, categoriaB11, categoriaB12, categoriaB13, categoriaB14, categoriaB15, categoriaB16, categoriaB17, categoriaB18, categoriaB19, categoriaB20);
 // arrayCategorias.push(categoriaC1, categoriaC2, categoriaC3);
