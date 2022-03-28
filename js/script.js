@@ -82,6 +82,8 @@ fetch('./data/data.json')
     for (var i = 0; i < data.length; i++) 
             {
                 arrayCategorias.push(data[i])
+                //Este cálculo es para tener en cuenta el incremento de la cuota paritaria del mes de marzo, que se calula sobre el salario de noviembre. 
+                //En este caso, como el data.json se realizó con los salarios de febrero, hice cálculo relativo.
                 arrayCategorias[i].salarioJr += arrayCategorias[i].salarioJr *0.0454547
                 arrayCategorias[i].salarioSmSr += arrayCategorias[i].salarioSmSr *0.0454547
                 arrayCategorias[i].salarioSr += arrayCategorias[i].salarioSr *0.0454547
