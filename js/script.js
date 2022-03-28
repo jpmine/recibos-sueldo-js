@@ -578,7 +578,7 @@ function renderRecibo()
                                 bold: true
                             }, 
                             { 
-                                text: salarioConvenio,
+                                text: salarioConvenio.toFixed(2),
                                 alignment: 'center',
                                 fontSize: 9,
                                 bold: true
