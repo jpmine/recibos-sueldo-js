@@ -86,6 +86,10 @@ html{
   background-color: #f1f1f1;
 }
 
+.botonesRecibo{
+  padding: 12px;
+}
+
 /* COLORES ---------------------------------------------------------------------------- */
 /* ESTILOS HEADER Y CARUSEL*/
 .grillaHeader {

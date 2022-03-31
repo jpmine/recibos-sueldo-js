@@ -9,9 +9,6 @@
 //     }
 // }
 
-// //Reseteo del formulario
-// document.getElementById('formMinuto').reset();
-
 // //******************************************************************************************************************************************************/
 // //Objetos categorías Administración IT, Soporte, Operaciones y Planificación
 // const categoriaA1 = new CategoriasConvenio("Administrador de redes", "A.1", 83596.58, 91199.77, 98802.96);
@@ -73,6 +70,9 @@
 // const categoriaE5 = new CategoriasConvenio("Administrador de Proyectos Marketing Digital ", "E.5", 81786.30, 89208.46, 96630.62);
 // //******************************************************************************************************************************************************/
 
+//Reseteo del formulario
+document.getElementById('formMinuto').reset();
+
 const arrayCategorias = []
 //Petición a JSON local para traer info de categorías. Esto reemplaza a la construcción del objeto anterior y el array de objetos
 
@@ -87,7 +87,6 @@ fetch('./data/data.json')
                 arrayCategorias[i].salarioJr += arrayCategorias[i].salarioJr *0.0454547
                 arrayCategorias[i].salarioSmSr += arrayCategorias[i].salarioSmSr *0.0454547
                 arrayCategorias[i].salarioSr += arrayCategorias[i].salarioSr *0.0454547
-                console.log(arrayCategorias[i])
             }
 })
 //Creación de array general con objetos de categorías
@@ -364,6 +363,36 @@ else
 //Funcion para mostrar los datos ingresados, los cálculos del salario y crear un PDF con el recibo
 function renderRecibo()
 {
+    //Validación de campos y notificación vía librería toastify
+    if(!objetoUsuario.nombre)
+    {
+        Toastify({text: "Tenés que completar tu nombre!", duration: 3000}).showToast();   
+    }
+    if(!objetoUsuario.empresa)
+    {
+        Toastify({text: "Tenés que completar el campo empresa!", duration: 3000}).showToast();   
+    }
+    if(!objetoUsuario.ingreso)
+    {
+        Toastify({text: "Te falta completar el campo del año de ingreso!", duration: 3000}).showToast();   
+    }
+    if(!objetoUsuario.mes)
+    {
+        Toastify({text: "No seleccionaste el mes de ingreso!", duration: 3000}).showToast();   
+    }
+    if(!objetoUsuario.area)
+    {
+        Toastify({text: "No seleccionaste el area en el que te desempeñás", duration: 3000}).showToast();   
+    }
+    if(!objetoUsuario.categoria)
+    {
+        Toastify({text: "No seleccionaste la categoría laboral", duration: 3000}).showToast();   
+    }
+    if(!objetoUsuario.senioriti)
+    {
+        Toastify({text: "No seleccionaste tu seniority", duration: 3000}).showToast();   
+    }
+
     //Desestructuración de objeto con los datos del usuario
     const {area, nombre, empresa, ingreso, mes, categoria, codigo, senioriti, salarioConvenio, idioma, titulo, funcion, afiliacion} = objetoUsuario; 
     //Fecha actual para recibo
@@ -466,8 +495,6 @@ function renderRecibo()
     {
         antiguedad = plusAntiguedad.toFixed(2) + ' por '  + antiguedad + ' años trabajados.'
     }
-
-    console.log(vacaciones)
 
     //Guardado de objeto con los datos del usuario en el LocalStorage
     seleccionPrevia = JSON.stringify(objetoUsuario);
@@ -782,61 +809,101 @@ function renderRecibo()
 
 function calcularVacacioes()
 {
-    //Desestructuración de objeto con los datos del usuario
-    const {area, nombre, empresa, ingreso, mes, categoria, codigo, senioriti, salarioConvenio, idioma, titulo, funcion} = objetoUsuario; 
-    //Fecha actual para recibo
-    let hoy = new Date(); 
-    let fechaRecibo = hoy.getFullYear()+'-'+(hoy.getMonth()+1)+'-'+hoy.getDate();
-
-    //Cálculo de años de antiguedad
-    fechaActual = new Date().getFullYear();
-    antiguedad = fechaActual - ingreso;
-
-    //Cálculo de días de vacaciones según ley
-    if(antiguedad > 1 && antiguedad < 5)
+    if(!objetoUsuario.ingreso)
     {
-        vacaciones = 14;
+        Toastify({text: "Te falta completar el campo del año de ingreso!", duration: 3000}).showToast();   
     }
-    else if (antiguedad >= 5 && antiguedad < 10)
+    else if(!objetoUsuario.mes)
     {
-        vacaciones = 21;
-    }
-    else if (antiguedad >= 10 && antiguedad < 20)
-    {
-        vacaciones = 28;
-    }
-    else if (antiguedad >= 20)
-    {
-        vacaciones = 35;
-    }
-    // En caso que la antiguedad sea menor a 1 año hay que desdoblar el cálculo según la ley de contrato de trabajo indica en su artículo N°151
-    else if(antiguedad == 0)
-    {
-        if(mes < 6)
-        {
-            //Obtención del current mes sumando 1 para calcular a partir de 1 y no de 0
-            compensacion = new Date().getMonth() + 1;
-            vacaciones = compensacion - mes
-        }
-        else
-        {
-            vacaciones = 14;
-        }
+        Toastify({text: "No seleccionaste el mes de ingreso!", duration: 3000}).showToast();   
     }
     else
     {
-        vacaciones = "No es posible calcularlas."
+        //Desestructuración de objeto con los datos del usuario
+        const {ingreso, mes} = objetoUsuario; 
+        //Fecha actual para recibo
+        let hoy = new Date(); 
+        let fechaRecibo = hoy.getFullYear()+'-'+(hoy.getMonth()+1)+'-'+hoy.getDate();
+
+        //Cálculo de años de antiguedad
+        fechaActual = new Date().getFullYear();
+        antiguedad = fechaActual - ingreso;
+
+        //Cálculo de días de vacaciones según ley
+        if(antiguedad > 1 && antiguedad < 5)
+        {
+            vacaciones = 14;
+        }
+        else if (antiguedad >= 5 && antiguedad < 10)
+        {
+            vacaciones = 21;
+        }
+        else if (antiguedad >= 10 && antiguedad < 20)
+        {
+            vacaciones = 28;
+        }
+        else if (antiguedad >= 20)
+        {
+            vacaciones = 35;
+        }
+        // En caso que la antiguedad sea menor a 1 año hay que desdoblar el cálculo según la ley de contrato de trabajo indica en su artículo N°151
+        else if(antiguedad == 0)
+        {
+            if(mes < 6)
+            {
+                //Obtención del current mes sumando 1 para calcular a partir de 1 y no de 0
+                compensacion = new Date().getMonth() + 1;
+                vacaciones = compensacion - mes
+            }
+            else
+            {
+                vacaciones = 14;
+            }
+        }
+        else
+        {
+            vacaciones = "No es posible calcularlas."
+        }
+        Swal.fire(
+            'Te corresponden ' + vacaciones + ' días de vacaciones por ley',
+            'Si estás afiliado/a a la Unión Informática tenés 1 semana extra libre por Convenio.',
+            'success'
+        )
     }
-    Swal.fire(
-        'Te corresponden ' + vacaciones + ' días de vacaciones por ley',
-        'Si estás afiliado/a a la Unión Informática tenés 1 semana extra libre por Convenio.',
-        'success'
-      )
 }
 
 //Funcion para mostrar el recibo en el HTML
 function renderReciboHTML()
 {
+    //Validación de campos
+    if(!objetoUsuario.nombre)
+    {
+        Toastify({text: "Tenés que completar tu nombre!", duration: 3000}).showToast();   
+    }
+    if(!objetoUsuario.empresa)
+    {
+        Toastify({text: "Tenés que completar el campo empresa!", duration: 3000}).showToast();   
+    }
+    if(!objetoUsuario.ingreso)
+    {
+        Toastify({text: "Te falta completar el campo del año de ingreso!", duration: 3000}).showToast();   
+    }
+    if(!objetoUsuario.mes)
+    {
+        Toastify({text: "No seleccionaste el mes de ingreso!", duration: 3000}).showToast();   
+    }
+    if(!objetoUsuario.area)
+    {
+        Toastify({text: "No seleccionaste el area en el que te desempeñás", duration: 3000}).showToast();   
+    }
+    if(!objetoUsuario.categoria)
+    {
+        Toastify({text: "No seleccionaste la categoría laboral", duration: 3000}).showToast();   
+    }
+    if(!objetoUsuario.senioriti)
+    {
+        Toastify({text: "No seleccionaste tu seniority", duration: 3000}).showToast();   
+    }
     //Desestructuración de objeto con los datos del usuario
     const {area, nombre, empresa, ingreso, mes, categoria, codigo, senioriti, salarioConvenio, idioma, titulo, funcion, afiliacion} = objetoUsuario; 
     //Fecha actual para recibo
@@ -951,8 +1018,6 @@ function renderReciboHTML()
     {
         antiguedad = plusAntiguedad.toFixed(2) + ' por '  + antiguedad + ' años trabajados.'
     }
-
-    console.log(vacaciones)
 
     //Guardado de objeto con los datos del usuario en el LocalStorage
     seleccionPrevia = JSON.stringify(objetoUsuario);

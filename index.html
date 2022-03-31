@@ -12,6 +12,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="sweetalert2.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <title>Tu recibo de sueldo online</title>
     <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
 </head>
@@ -152,15 +154,15 @@
             <div class="container">
                 <div class="row justify-content-center">
 
-                    <div class="col-sm-12 col-md-12 col-lg-4 text-center">
+                    <div class="botonesRecibo col-sm-12 col-md-12 col-lg-4 text-center">
                         <button type="button" class="btn btn-outline-dark btn-lg" onclick="renderRecibo()">CREAR Y VISUALIZAR RECIBO EN PDF</button>
                     </div>
 
-                    <div class="col-sm-12 col-md-12 col-lg-4 text-center">
+                    <div class="botonesRecibo col-sm-12 col-md-12 col-lg-4 text-center">
                         <button type="button" class="btn btn-outline-dark btn-lg" onclick="renderReciboHTML()">DESPLEGAR RECIBO</button>
                     </div>
 
-                    <div class="col-sm-12 col-md-12 col-lg-4 text-center">
+                    <div class="botonesRecibo col-sm-12 col-md-12 col-lg-4 text-center">
                         <button type="button" class="btn btn-outline-dark btn-lg" onclick="calcularVacacioes()">CALCULAR DÍAS DE VACACIONES</button>
                     </div>                    
                 </div>
@@ -176,6 +178,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.4/pdfmake.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.4/vfs_fonts.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="js\script.js"></script>
 </body>
  <footer>
